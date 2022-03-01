@@ -18,7 +18,7 @@ app.use(body());
 app.use(express.static(path.resolve(__dirname, '..', 'build')));
 
 const db = mysql.createConnection({
-    host: '172.29.112.1',
+    host: '172.25.192.1',
     user: 'Gunn',
     password: '1234',
     database: 'database'
@@ -59,7 +59,8 @@ app.post('/data', function(req, res){
     let data = {
         id:req.body.idkey,
         firstname:req.body.firstname,
-        lastname:req.body.lastname
+        lastname:req.body.lastname,
+        email:req.body.email
     };
     let sql = 'INSERT INTO users SET ?';
     db.query(sql, data, (err, result)=>{
